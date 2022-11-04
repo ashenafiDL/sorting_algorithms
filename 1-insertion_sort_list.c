@@ -19,7 +19,6 @@ void insertion_sort_list(listint_t **list)
 	}
 	if (count < 2)
 		return;
-
 	head = (*list)->next;
 	while (head)
 	{
@@ -29,29 +28,22 @@ void insertion_sort_list(listint_t **list)
 			if (current->prev && current->n < current->prev->n)
 			{
 				left = current->prev;
-
 				temp1 = left->prev;
 				temp2 = current->next;
-
 				left->next = temp2;
 				left->prev = current;
 				current->next = left;
 				current->prev = temp1;
-
 				if (temp1 != NULL)
 					temp1->next = current;
 				if (temp2 != NULL)
 					temp2->prev = left;
-
 				if (left == *list)
 					*list = current;
-
 				print_list(*list);
 			}
 			else
-			{
 				break;
-			}
 		}
 		head = head->next;
 	}
