@@ -70,11 +70,12 @@ int partition(int *arr, size_t size, int low, int high)
 		low++;
 	}
 
-	if (i + 1 != high)
+	if (i + 1 != high && arr[i + 1] != arr[high])
 	{
 		swap_array(arr, i + 1, high);
 		print_array(arr, size);
 	}
+
 	return (i + 1);
 }
 
